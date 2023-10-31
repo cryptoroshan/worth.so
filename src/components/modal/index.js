@@ -13,11 +13,11 @@ import {
 } from "@material-tailwind/react";
 import clsx from "clsx";
 
-import { useProduct } from "@/hooks/use-product";
+// import { useProduct } from "@/hooks/use-product";
 
 const AddSaaSModal = ({ modalOpen, handleClose }) => {
   // const { data: session } = useSession();
-  const { confirmReload } = useProduct();
+  // const { confirmReload } = useProduct();
 
   const [open, setOpen] = useState(false);
   const [appName, setAppName] = useState("");
@@ -57,7 +57,7 @@ const AddSaaSModal = ({ modalOpen, handleClose }) => {
       body: o_formData
     });
 
-    await confirmReload(true);
+    // await confirmReload(true);
     initialize();
   }
 

@@ -61,24 +61,10 @@ const Header = () => {
             <div
               ref={wrapperRef}
               className="flex items-center gap-4 px-6 h-10 text-primary border border-primary text-sm font-bold rounded-md cursor-pointer"
-              // onClick={() => {
-              //   if (session === null)
-              //     signIn("google");
-              //   else
-              //     setShowDropdown(!showDropdown);
-              // }}
             >
-              {/* <Image
-                className={clsx(status === "authenticated" ? "hidden" : "")}
-                src="/assets/img/google.svg"
-                alt="Google Logo"
-                width={24}
-                height={24}
-                priority
-              />
               <p>
-                {status === "authenticated" ? session?.user.email : "Sign in with Google"}
-              </p> */}
+                Sign in with Google
+              </p>
             </div>
             <div
               className={clsx(
@@ -97,9 +83,6 @@ const Header = () => {
               </div>
               <div
                 className="flex gap-2 items-center px-4 py-3 cursor-pointer rounded-b-xl hover:bg-gray-300"
-                onClick={() => {
-                  signOut("google");
-                }}
               >
                 <p>signOut</p>
               </div>

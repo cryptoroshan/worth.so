@@ -1,14 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useSession, signIn, signOut } from "next-auth/react"
 import Link from 'next/link'
-import Image from 'next/image'
 import clsx from 'clsx'
 
 import AddSaaSModal from "@/components/modal";
 
 const Header = () => {
-  // const { status, data: session } = useSession();
-
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -19,24 +15,6 @@ const Header = () => {
       document.removeEventListener("click", handleClickOutside, true);
     };
   }, []);
-
-  // useEffect(() => {
-  //   if (session?.user) {
-  //     processWithGoogle(session?.user);
-  //   }
-  // }, [session?.user])
-
-  // const processWithGoogle = async (userInfo) => {
-  //   await fetch('/api/account/processWithGoogle', {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       user_info: userInfo
-  //     })
-  //   });
-  // }
 
   const handleClickOutside = (event) => {
     try {
@@ -72,9 +50,6 @@ const Header = () => {
                 showDropdown === false ? "hidden" : ""
               )}
             >
-              <div className="px-4 py-3">
-                {/* <p>{session?.user.email}</p> */}
-              </div>
               <div
                 className="flex gap-2 items-center px-4 py-3 cursor-pointer hover:bg-gray-300"
                 onClick={() => setOpen(true)}

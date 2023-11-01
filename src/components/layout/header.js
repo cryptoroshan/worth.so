@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
-import {
-  Button,
-} from "@material-tailwind/react";
+
+import AddSaaSModal from "@/components/modal";
+
 const Header = () => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
@@ -65,7 +65,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <Button>Button</Button>
+      <AddSaaSModal modalOpen={open} handleClose={(open) => setOpen(open)} />
     </>
   );
 };

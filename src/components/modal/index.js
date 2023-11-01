@@ -114,68 +114,6 @@ const AddSaaSModal = ({ modalOpen, handleClose }) => {
           <Input type="number" label="Amount increase" value={amountIncrease} onChange={(e) => setAmountIncrease(Number(e.target.value))} />
           <Input type="number" label="Number of sales" value={numberOfSales} onChange={(e) => setNumberOfSales(Number(e.target.value))} />
           <Textarea label="Overview" value={appOverView} onChange={(e) => setAppOverView(e.target.value)} />
-          {/** App Logo Image */}
-          <div className="flex w-full items-center justify-center bg-grey-lighter">
-            <label className="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide border border-blue cursor-pointer hover:bg-blue">
-              <img className={appLogoCreateObjectURL === "" ? "hidden" : ""} src={appLogoCreateObjectURL} alt="" />
-              <svg className={clsx("w-8 h-8", appLogoCreateObjectURL === null ? "" : "hidden")} fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-              </svg>
-              <span className={clsx("mt-2 text-base leading-normal", appLogoCreateObjectURL === null ? "" : "hidden")}>Select a logo</span>
-              <input type='file' className="hidden" accept="image/*" onChange={(e) => {
-                if (e.target.files && e.target.files[0]) {
-                  setAppLogo(e.target.files[0]);
-                  setAppLogoCreateObjectURL(URL.createObjectURL(e.target.files[0]));
-                }
-              }} />
-            </label>
-          </div>
-          {/** App Introduction Image */}
-          <div className="flex w-full items-center justify-center bg-grey-lighter">
-            <label className="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide border border-blue cursor-pointer hover:bg-blue">
-              <img className={appIntroductionImageCreateObjectURL === "" ? "hidden" : ""} alt="" src={appIntroductionImageCreateObjectURL} />
-              <svg className={clsx("w-8 h-8", appIntroductionImageCreateObjectURL === null ? "" : "hidden")} fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-              </svg>
-              <span className={clsx("mt-2 text-base leading-normal", appIntroductionImageCreateObjectURL === null ? "" : "hidden")}>Select a image</span>
-              <input type='file' className="hidden" accept="image/*" onChange={(e) => {
-                if (e.target.files && e.target.files[0]) {
-                  setAppIntroductionImage(e.target.files[0]);
-                  setAppIntroductionImageCreateObjectURL(URL.createObjectURL(e.target.files[0]));
-                }
-              }} />
-            </label>
-          </div>
-          {/** App Carousel Image */}
-          <div className="flex w-full items-center justify-center bg-grey-lighter">
-            <label className="w-64 h-64 flex flex-col items-center justify-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide border border-blue cursor-pointer hover:bg-blue">
-              <svg className={clsx("w-8 h-8", appCarouselImage === null ? "" : "hidden")} fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
-              </svg>
-              <span className={clsx("mt-2 text-base leading-normal", appCarouselImage === null ? "" : "hidden")}>Select Carousel Images</span>
-              <input type='file' className="hidden" accept="image/*" multiple onChange={(e) => {
-                if (e.target.files) {
-                  //convert `FileList` to `File[]`
-                  const _files = Array.from(e.target.files);
-                  setAppCarouselImage(_files);
-                }
-              }} />
-              <Carousel loop className={clsx("rounded-xl min-h-full", appCarouselImage === null ? "hidden" : "")}>
-                {appCarouselImage !== null && (
-                  appCarouselImage.map((item, index) => {
-                    return (
-                      <img
-                        key={index}
-                        alt=""
-                        src={URL.createObjectURL(item)}
-                        className="h-full w-full object-cover"
-                      />
-                    )
-                  })
-                )}
-              </Carousel>
-            </label>
-          </div>
         </div>
       </DialogBody>
       <DialogFooter className="space-x-2">

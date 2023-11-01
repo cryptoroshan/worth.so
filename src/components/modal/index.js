@@ -33,52 +33,52 @@ const AddSaaSModal = ({ modalOpen, handleClose }) => {
   const [appIntroductionImageCreateObjectURL, setAppIntroductionImageCreateObjectURL] = useState(null);
   const [appCarouselImage, setAppCarouselImage] = useState(null);
 
-  useEffect(() => {
-    setOpen(modalOpen);
-  }, [modalOpen])
+  // useEffect(() => {
+  //   setOpen(modalOpen);
+  // }, [modalOpen])
 
   const handleAdd = async () => {
-    const o_formData = new FormData();
-    // o_formData.append("app_manager", session?.user.email);
-    o_formData.append("app_name", appName);
-    o_formData.append("app_url", appURL);
-    o_formData.append("app_starting_price", appStartingPrice);
-    o_formData.append("amount_increase", amountIncrease);
-    o_formData.append("sales_number", numberOfSales);
-    o_formData.append("app_overview", appOverView);
-    o_formData.append("app_logo", appLogo);
-    o_formData.append("app_introduction_image", appIntroductionImage);
-    appCarouselImage.forEach((image, index) => {
-      o_formData.append("app_carousel" + (index + 1), image);
-    })
+    // const o_formData = new FormData();
+    // // o_formData.append("app_manager", session?.user.email);
+    // o_formData.append("app_name", appName);
+    // o_formData.append("app_url", appURL);
+    // o_formData.append("app_starting_price", appStartingPrice);
+    // o_formData.append("amount_increase", amountIncrease);
+    // o_formData.append("sales_number", numberOfSales);
+    // o_formData.append("app_overview", appOverView);
+    // o_formData.append("app_logo", appLogo);
+    // o_formData.append("app_introduction_image", appIntroductionImage);
+    // appCarouselImage.forEach((image, index) => {
+    //   o_formData.append("app_carousel" + (index + 1), image);
+    // })
 
-    await fetch('/api/product/add_product', {
-      method: "POST",
-      body: o_formData
-    });
+    // await fetch('/api/product/add_product', {
+    //   method: "POST",
+    //   body: o_formData
+    // });
 
-    // await confirmReload(true);
-    initialize();
+    // // await confirmReload(true);
+    // initialize();
   }
 
   const handleCancel = () => {
     initialize();
   }
 
-  const initialize = () => {
-    setAppName("");
-    setAppURL("");
-    setAppStartingPrice(0);
-    setAmountIncrease(0);
-    setNumberOfSales(1);
-    setAppOverView("");
-    setAppLogo(null);
-    setAppLogoCreateObjectURL(null);
-    setAppIntroductionImage(null);
-    setAppIntroductionImageCreateObjectURL(null);
-    setAppCarouselImage(null);
-    handleClose(!open);
-  }
+  // const initialize = () => {
+  //   setAppName("");
+  //   setAppURL("");
+  //   setAppStartingPrice(0);
+  //   setAmountIncrease(0);
+  //   setNumberOfSales(1);
+  //   setAppOverView("");
+  //   setAppLogo(null);
+  //   setAppLogoCreateObjectURL(null);
+  //   setAppIntroductionImage(null);
+  //   setAppIntroductionImageCreateObjectURL(null);
+  //   setAppCarouselImage(null);
+  //   handleClose(!open);
+  // }
 
   return (
     <Dialog open={open} size="xs" handler={handleCancel}>

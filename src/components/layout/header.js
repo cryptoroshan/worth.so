@@ -65,6 +65,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+      <Button>Button</Button>
     </>
   );
 };

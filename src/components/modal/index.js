@@ -81,8 +81,7 @@ const AddSaaSModal = ({ modalOpen, handleClose }) => {
   // }
 
   return (
-    <Dialog open={open} size="xs" handler={handleCancel}>
-    </Dialog>
+    <div></div>
   );
 }
 
